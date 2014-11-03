@@ -1,0 +1,31 @@
+- model_class = Movie
+div class="page-header"
+  h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+table class="table table-striped"
+  thead
+    tr
+      th= model_class.human_attribute_name(:id)
+      th= model_class.human_attribute_name(:name)
+      th= model_class.human_attribute_name(:original_name)
+      th= model_class.human_attribute_name(:description)
+      th= model_class.human_attribute_name(:director)
+      th= model_class.human_attribute_name(:year)
+      th= model_class.human_attribute_name(:created_at)
+      th=t '.actions', :default => t("helpers.actions")
+  tbody
+    - @movies.each do |movie|
+      tr
+        td= link_to movie.id, movie_path(movie)
+        td= movie.name
+        td= movie.original_name
+        td= movie.description
+        td= movie.director
+        td= movie.year
+        td=l movie.created_at
+        td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_movie_path(movie), :class => 'btn btn-default btn-xs'
+          '
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), movie_path(movie), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_movie_path, :class => 'btn btn-primary'
+

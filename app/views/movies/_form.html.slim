@@ -1,0 +1,29 @@
+= form_for @movie, html: { class: "form form-horizontal movie" } do |f|
+  .form-group
+    = f.label :name, :class => 'control-label'
+    .controls
+      = f.text_field :name, :class => 'form-control'
+    = error_span(@movie[:name])
+  .form-group
+    = f.label :original_name, :class => 'control-label'
+    .controls
+      = f.text_field :original_name, :class => 'form-control'
+    = error_span(@movie[:original_name])
+  .form-group
+    = f.label :description, :class => 'control-label'
+    .controls
+      = f.text_field :description, :class => 'form-control'
+    = error_span(@movie[:description])
+  .form-group
+    = f.label :director, :class => 'control-label'
+    .controls
+      = f.text_field :director, :class => 'form-control'
+    = error_span(@movie[:director])
+  .form-group
+    = f.label :year, :class => 'control-label'
+    .controls
+      = f.text_field :year, :class => 'form-control'
+    = error_span(@movie[:year])
+  = f.submit nil, :class => 'btn btn-primary'
+  '
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), movies_path, :class => 'btn'

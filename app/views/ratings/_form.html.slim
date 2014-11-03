@@ -1,0 +1,19 @@
+= form_for @rating, html: { class: "form form-horizontal rating" } do |f|
+  .form-group
+    = f.label :score, :class => 'control-label'
+    .controls
+      = f.text_field :score, :class => 'form-control'
+    = error_span(@rating[:score])
+  .form-group
+    = f.label :movie_id, :class => 'control-label'
+    .controls
+      = f.text_field :movie_id, :class => 'form-control'
+    = error_span(@rating[:movie_id])
+  .form-group
+    = f.label :user_id, :class => 'control-label'
+    .controls
+      = f.text_field :user_id, :class => 'form-control'
+    = error_span(@rating[:user_id])
+  = f.submit nil, :class => 'btn btn-primary'
+  '
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), ratings_path, :class => 'btn'
