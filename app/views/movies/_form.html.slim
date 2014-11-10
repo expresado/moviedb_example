@@ -1,4 +1,4 @@
-= form_for @movie, html: { class: "form form-horizontal movie" } do |f|
+= form_for @movie, html: { class: "form form-horizontal movie", multipart: true } do |f|
   .form-group
     = f.label :name, :class => 'control-label'
     .controls
@@ -9,6 +9,12 @@
     .controls
       = f.text_field :original_name, :class => 'form-control'
     = error_span(@movie[:original_name])
+
+  .form-group
+   = f.label :image, :class => 'control-label'
+    .controls
+      = f.file_field :image, :class => 'form-control'
+    = error_span(@movie[:image])
   .form-group
     = f.label :description, :class => 'control-label'
     .controls

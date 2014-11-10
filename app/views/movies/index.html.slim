@@ -4,6 +4,7 @@ div class="page-header"
 table class="table table-striped"
   thead
     tr
+      th
       th= model_class.human_attribute_name(:id)
       th= model_class.human_attribute_name(:name)
       th= model_class.human_attribute_name(:original_name)
@@ -15,6 +16,7 @@ table class="table table-striped"
   tbody
     - @movies.each do |movie|
       tr
+        td= image_tag movie.image(:thumb), width: 100,height: 100
         td= link_to movie.id, movie_path(movie)
         td= movie.name
         td= movie.original_name
