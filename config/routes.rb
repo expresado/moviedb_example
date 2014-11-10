@@ -5,8 +5,6 @@ Rails.application.routes.draw do
     resource :ratings, only: [:create]
   end
 
-  resources :users, only: [:new, :create]
-
   get '/logout' => 'application#logout'
 
   root 'movies#index'
