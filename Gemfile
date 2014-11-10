@@ -40,3 +40,8 @@ gem 'spring',        group: :development
 
 gem 'slim-rails'
 gem "twitter-bootstrap-rails"
+
+gem 'devise', '~> 3.4.1'
+gem 'paperclip', '~> 4.2.0'
+
+
